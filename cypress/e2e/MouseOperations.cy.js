@@ -1,3 +1,5 @@
+import 'cypress-iframe'
+
 describe('Mouse Operations',()=>{
 
 	it('MouseHover',()=>{
@@ -11,15 +13,33 @@ describe('Mouse Operations',()=>{
 		cy.visit("https://swisnl.github.io/jQuery-contextMenu/demo.html")
 		cy.get(".context-menu-one.btn.btn-neutral").trigger('contextmenu');
 		cy.get(".context-menu-list.context-menu-root").should('be.visible');
-		
 
 	});
 
-	it('Double click',()=>{
+	it.only('Double click',()=>{
+		cy.visit("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick3");
+		cy.frameLoaded("#iframeResult"); //Load the frame
 
-	});
+		//Approach 1
+		cy.iframe("#iframeResult").find("button[ondblclick='myFunction()']").trigger('dblclick');
+
+		cy.iframe("#iframeResult").find('#field2').should('have.value','Hello World!')
+
+		//Approach 2
+		cy.iframe("#iframeResult").find("button[ondblclick='myFunction()']").dblclick();
+
+		cy.iframe("#iframeResult").find('#field2').should('have.value','Hello World!')
+
+		});
 
 	it('Drag and Drop using plugin',()=>{
+		cy.visit('http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html')
+		cy.get('#box6').should('be.visible')
+		cy.get('#box106').should('be.visible')
+
+		cy.wait(3000)
+		cy.get('#box6').drag('box106');
+
 
 	});
 

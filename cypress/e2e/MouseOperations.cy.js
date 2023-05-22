@@ -33,7 +33,7 @@ describe('Mouse Operations',()=>{
 
 		});
 
-	it.only('Drag and Drop using plugin',()=>{
+	it('Drag and Drop using plugin',()=>{
 		cy.visit('http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html')
 		cy.get('#box6').should('be.visible')
 		cy.get('#box106').should('be.visible')
@@ -44,7 +44,14 @@ describe('Mouse Operations',()=>{
 
 	});
 
-	it('Scrolling Page',()=>{
+	it.only('Scrolling Page',()=>{
+		cy.visit('https://www.countries-ofthe-world.com/flags-of-the-world.html');
+
+		cy.get(':nth-child(2) > tbody > :nth-child(103) > :nth-child(1) > img').scrollIntoView({duration:2000});
+		cy.get(':nth-child(2) > tbody > :nth-child(103) > :nth-child(1) > img').should('be.visible');
+
+		cy.get('#footer').scrollIntoView();
+		
 
 	});
 })

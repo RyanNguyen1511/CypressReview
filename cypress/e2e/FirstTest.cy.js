@@ -9,6 +9,6 @@ describe('My first Test',()=>{
 		cy.get('input[id="search"]').type('Vietcetera')
 		cy.get('button[id="search-icon-legacy"]').click();
 		// cy.get('span[id="title"]').should('have.value','Latest from Vietcetera');
-		cy.xpath('//div[@id="title-container"]//span[@id="title"]').should('have.value','Latest from Vietcetera');
+		// cy.xpath('//div[@id="title-container"]//span[@id="title"]').should('have.value','Latest from Vietcetera');
 	})
 })

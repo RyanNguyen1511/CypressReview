@@ -35,3 +35,31 @@ Cypress.Commands.add('getIframe',(iframe)=>{
 })
 
 import 'cypress-file-upload';
+
+// Custom command for clicking on link using label
+Cypress.Commands.add("ClickLink",(label)=>{
+	cy.get("a").contains(label).click();
+});
+
+
+// Overwrite contains()
+
+// Cypress.Commands.overwrite("contains",(originalFn, subject, filter, text, options ={})=>{
+// 	if(typeof text =="object"){
+// 		options = text
+// 		text = filter
+// 		filter = undefined
+// 	}
+// 	options.matchCase = false
+// 	return originalFn(subject,filter,text,options)
+// })
+
+// custom command for login
+Cypress.Commands.add("LogInApp",(email,password)=>{
+	cy.get('');
+
+
+	cy.visit("#Email").type(email);
+	cy.visit('#Password').type(password);
+	cy.visit("button[class='button-1 login-button']").click();
+})

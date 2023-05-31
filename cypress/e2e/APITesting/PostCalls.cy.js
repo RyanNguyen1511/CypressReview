@@ -56,6 +56,9 @@ describe ("Post Calls",()=>{
 			expect(response.body.tourist_name).to.eq(requestBody.tourist_email)
 			expect(response.body.tourist_email).to.eq(requestBody.tourist_email)
 			expect(response.body.tourist_location).to.eq(requestBody.tourist_location)
+
+			expect(response.body).has.property('tourist_email',requestBody.tourist_email)
+			expect(response.body).to.have.property('tourist_email',requestBody.tourist_email)
 		})
 	});
 

@@ -10,7 +10,8 @@
   "author": "tuanNguyen",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^12.11.0"
+    "cypress": "^12.11.0",
+    "xml2js": "^0.6.0"
   },
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.2.3",
